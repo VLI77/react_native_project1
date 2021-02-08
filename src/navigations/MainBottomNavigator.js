@@ -3,8 +3,8 @@ import {Text, View, Image, StyleSheet, ScrollView, Button, Linking, Animated} fr
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {SearchAndDetailNavigator} from "./SearchAndDetailNavigator.js";
 import HomeScreen from "../screens/HomeScreen";
-import { FontAwesome } from '@expo/vector-icons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
+import {FontAwesome} from '@expo/vector-icons';
 
 const TabNavigator = createBottomTabNavigator();
 
@@ -18,14 +18,14 @@ export const MainBottomNavigator = () => {
 
             if (route.name === 'HomeScreen') {
               iconName = focused
-                ? 'ios-home'
-                : 'ios-home-outline';
+                ? 'home'
+                : 'home';
             } else if (route.name === 'Search') {
-              iconName = focused ? 'ios-search' : 'ios-search-outline';
+              iconName = focused ? 'search' : 'search';
             }
 
             // You can return any component that you like here!
-            return <Ionicons name={iconName} size={size} color={color} />;
+            return <FontAwesome name={iconName} size={size} color={color} />;
           },
         })}
         tabBarOptions={{
