@@ -8,8 +8,17 @@ const TabNavigator = createBottomTabNavigator();
 
 export const MainBottomNavigator = () => {
     return (
-        <TabNavigator.Navigator style={styles.navigator} >
-            <TabNavigator.Screen name="HomeScreen" component={HomeScreen} />
+        <TabNavigator.Navigator     tabBarOptions={{
+            activeTintColor: '#B5A90F',
+            inactiveTintColor: 'lightgray',
+            activeBackgroundColor: '#B00020',
+            inactiveBackgroundColor: '#B00020',
+                style: {
+                      backgroundColor: '#B5A90F',
+                      paddingBottom: 3
+                }
+         }} >
+            <TabNavigator.Screen style={styles.navigator} name="HomeScreen" component={HomeScreen} />
             <TabNavigator.Screen name="Search" component={SearchAndDetailNavigator} />
         </TabNavigator.Navigator>
     )
@@ -17,7 +26,7 @@ export const MainBottomNavigator = () => {
 
 const styles = StyleSheet.create({
     navigator: {
-        
+
         backgroundColor: "red",
     },
   
