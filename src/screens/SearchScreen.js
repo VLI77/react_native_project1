@@ -4,6 +4,8 @@ import {Search} from "../components/Search";
 import {ResultSearch} from "../components/ResultSearch";
 import {FilmItem} from "../components/FilmItem";
 import {searchMovie} from "../services/movie";
+import {Logo} from '../components/Logo';
+
 
 export default class SearchScreen extends React.Component {
     state = {
@@ -71,6 +73,7 @@ export default class SearchScreen extends React.Component {
         const {searchText} = this.state;
         return (
             <SafeAreaView style={styles.main_container}>
+                    <Logo/>
                     <Search handleSearch={this.handleSearchText} handleClickButton={this._searchFilms}/>
                     {this.state.searchText !== '' ? <ResultSearch textSearched={searchText}/> : null}
                     {this._renderResult()}

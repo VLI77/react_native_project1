@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {Button, View, TextInput, StyleSheet, Image} from "react-native";
-import {Logo} from '../components/Logo';
 
 export const Search = (props) => {
     const [isDisabled, setIsDisabled] = useState(true);
@@ -11,7 +10,6 @@ export const Search = (props) => {
 
     return (
         <View>
-            <Logo/>
             <View style={styles.main_container}>
                 <View style={styles.input_container}>
                     <TextInput
