@@ -2,8 +2,8 @@ import React from 'react';
 import {SafeAreaView, View, StyleSheet, Text, FlatList, ActivityIndicator, Image} from "react-native";
 import {Search} from "../components/Search";
 import {ResultSearch} from "../components/ResultSearch";
-// import {FilmItem} from "../components/FilmItem";
-// import {searchMovie} from "../services/movie";
+import {FilmItem} from "../components/FilmItem";
+import {searchMovie} from "../services/movie";
 
 export default class SearchScreen extends React.Component {
     state = {
