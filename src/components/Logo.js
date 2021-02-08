@@ -13,9 +13,9 @@ export const Logo = (props) => {
 
 const styles = StyleSheet.create({
   logo_container: {
-      width: 200,
-      height: 200,
-      marginTop:'15%',
+      width: 120,
+      height: 120,
+      marginTop:'10%',
       marginBottom:'5%',
       borderRadius: 360,
       borderWidth: 8,
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
       overflow: "hidden"
   },
   logo: {
-      width: 190,
-      height: 190,
+      width: 110,
+      height: 110,
   },
 })
