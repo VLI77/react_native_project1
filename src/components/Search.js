@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Button, View, TextInput, StyleSheet, Image} from "react-native";
+import {Logo} from '../components/Logo';
 
 export const Search = (props) => {
     const [isDisabled, setIsDisabled] = useState(true);
@@ -9,16 +10,19 @@ export const Search = (props) => {
     }
 
     return (
-        <View style={styles.main_container}>
-            <View style={styles.input_container}>
-                <TextInput
-                    style={styles.textinput}
-                    placeholder='Titre du film'
-                    onChangeText={onChangeText}
-                />
-            </View>
-            <View style={styles.button}>
-            <Button color='#B5A90F'  disabled={isDisabled} title='Rechercher' onPress={() => props.handleClickButton()}/>
+        <View>
+            <Logo/>
+            <View style={styles.main_container}>
+                <View style={styles.input_container}>
+                    <TextInput
+                        style={styles.textinput}
+                        placeholder='Titre du film'
+                        onChangeText={onChangeText}
+                    />
+                </View>
+                <View style={styles.button}>
+                <Button color='#B5A90F'  disabled={isDisabled} title='Rechercher' onPress={() => props.handleClickButton()}/>
+                </View>
             </View>
         </View>
     )
@@ -29,7 +33,6 @@ const styles = StyleSheet.create({
         flexDirection:'row-reverse'
     },
     main_container: {
-        marginTop:'60%',
         padding: 30,
         backgroundColor: '#B00020',
         borderBottomLeftRadius: 15,
@@ -49,6 +52,8 @@ const styles = StyleSheet.create({
     },
     textinput: {
         height: 50,
-        paddingLeft: 10
+        paddingLeft: 10,
+        fontWeight: 'bold',
+        color: '#B00020',
     }
 })
