@@ -1,11 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import HomepageButton from '../components/HomepageButton';
+
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app§!</Text>
+      <HomepageButton data="Action"/>
+      <HomepageButton data="Aventure"/>
+      <HomepageButton data="Horreur"/>
       <StatusBar style="auto" />
     </View>
   );
