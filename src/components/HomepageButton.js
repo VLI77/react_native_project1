@@ -13,27 +13,18 @@ export const HomepageButton = (props) => {
 
   return(
     <View style={styles.screenContainer}>
-    <View style={styles.container}>
       <AppButton title={film.name} size="sm" backgroundColor="#B00020" />
     </View>
-    </View>
-
   )
 }
-
 
 const styles = StyleSheet.create({
     screenContainer: {
         flex: 1,
-        justifyContent: "center",
-        width:'100%',
-        height:'100%',
-        
     },
     appButtonContainer: {
         flex:1,
-        width:'90%',
-        margin:10,
+        margin: 10,
         elevation: 8,
         backgroundColor: "#FFFFFF",
         paddingVertical: 20,
@@ -53,12 +44,5 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         alignSelf: "center",
         textTransform: "uppercase",
-        
     },
-    container: {
-        width:'100%',
-        height:'100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-    }
 })

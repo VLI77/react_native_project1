@@ -27,12 +27,11 @@ export default function HomeScreen() {
     <View style={styles.container}>
       <Logo/>
       <FlatList
-                    data={filmsType}
-                    renderItem={({item, index}) => <HomepageButton film={item} index={index} />}
-                    keyExtractor={item => item.name.toString()}
-                    numColumns={2}
-            
-                />
+        data={filmsType}
+        renderItem={({item, index}) => <HomepageButton film={item} index={index} />}
+        keyExtractor={item => item.name.toString()}
+        numColumns={2}
+      />
       <StatusBar style="auto" />
     </View>
   );
@@ -42,7 +41,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F4F4F4',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
