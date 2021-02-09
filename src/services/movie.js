@@ -11,4 +11,16 @@ export function searchMovie(searchText, page) {
             }
         )
     ).then(result => result.json());
+
+}
+
+export function getType() {
+    return fetch(
+        getApiUrl(
+            `/genre/movie/list`,
+            {
+                language: 'fr-FR',
+            }
+        )
+    ).then(result => result.json());
 }

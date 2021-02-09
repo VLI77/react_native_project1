@@ -8,54 +8,41 @@ const AppButton = ({ onPress, title }) => (
   </TouchableOpacity>
 );
 
+export const HomepageButton = (props) => {
+  const {film, index} = props;
 
-export default function HomepageButton({data}) {
-    return (
-      <View style={styles.screenContainer}>
-      <View style={styles.container}>
-        <AppButton title={data} size="sm" backgroundColor="#B00020" />
-      </View>
-      </View>
-    );
-  }
+  return(
+    <View style={styles.screenContainer}>
+      <AppButton title={film.name} size="sm" backgroundColor="#B00020" />
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
     screenContainer: {
         flex: 1,
-        justifyContent: "center",
-        width:'100%',
-        height:'100%',
-        
-        
     },
     appButtonContainer: {
+        flex:1,
+        margin: 10,
         elevation: 8,
         backgroundColor: "#FFFFFF",
-        paddingVertical: 10,
-        paddingHorizontal: 12,
-        shadowColor:"#B00020",
+        paddingVertical: 20,
+        paddingHorizontal: 20,
+        shadowColor:'#B00020',
         shadowOffset: {
 	        width: 0,
 	        height: 8,
         },
         shadowOpacity: 0.7,
         shadowRadius: 10.32,
-
-elevation: 16,
+        elevation: 16,
     },
     appButtonText: {
-        fontSize: 18,
+        fontSize: 15,
         color: "#B00020",
         fontWeight: "bold",
         alignSelf: "center",
         textTransform: "uppercase",
-        
     },
-    container: {
-        flex:1,
-        width:'100%',
-        height:'100%',
-        alignItems: 'center',
-        justifyContent: 'center',
-    }
 })
