@@ -14,7 +14,7 @@ export const HomepageButton = (props) => {
   return(
     <View style={styles.screenContainer}>
     <View style={styles.container}>
-      <AppButton title={film.genre} size="sm" backgroundColor="#B00020" />
+      <AppButton title={film.name} size="sm" backgroundColor="#B00020" />
     </View>
     </View>
 

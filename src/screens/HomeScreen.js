@@ -17,7 +17,7 @@ export default function HomeScreen() {
       getType().then(data => {
           setIsLoading(false);
           setFilmsType(data.genres);
-        
+          console.log(data.genres);
       })
   }, [])
 
@@ -29,7 +29,7 @@ export default function HomeScreen() {
       <FlatList
                     data={filmsType}
                     renderItem={({item, index}) => <HomepageButton film={item} index={index} />}
-                    keyExtractor={item => item.id.toString()}
+                    keyExtractor={item => item.name.toString()}
             
                 />
       <StatusBar style="auto" />
