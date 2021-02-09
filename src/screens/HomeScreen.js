@@ -4,10 +4,10 @@ import { StyleSheet, Text, View,FlatList } from 'react-native';
 import {HomepageButton} from '../components/HomepageButton';
 import {Logo} from '../components/Logo';
 import{getType} from '../services/movie'
+import { useNavigation } from '@react-navigation/native'
 
 
-export default function HomeScreen() {
-
+export default function HomeScreen({navigation}) {
 
   const [isLoading, setIsLoading] = useState(false)
   const [filmsType, setFilmsType] = useState([])
@@ -17,10 +17,8 @@ export default function HomeScreen() {
       getType().then(data => {
           setIsLoading(false);
           setFilmsType(data.genres);
-          console.log(data.genres);
       })
   }, [])
-
 
 
   return (
@@ -28,7 +26,7 @@ export default function HomeScreen() {
       <Logo/>
       <FlatList
         data={filmsType}
-        renderItem={({item, index}) => <HomepageButton film={item} index={index} />}
+        renderItem={({item, index}) => <HomepageButton film={item} index={index} goToType={() => navigation.navigate('Genre', {title: item.name})} />}
         keyExtractor={item => item.name.toString()}
         numColumns={2}
       />

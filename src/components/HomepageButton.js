@@ -2,19 +2,18 @@ import React from 'react';
 import { ceil, color } from 'react-native-reanimated';
 import { View, Button, StyleSheet, TouchableOpacity, Text } from "react-native";
 
-const AppButton = ({ onPress, title }) => (
-  <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
-    <Text style={styles.appButtonText}>{title}</Text>
-  </TouchableOpacity>
-);
+
 
 export const HomepageButton = (props) => {
-  const {film, index} = props;
+  const {film,goToType, index} = props;
 
   return(
+    <TouchableOpacity onPress={goToType} style={styles.appButtonContainer}>
     <View style={styles.screenContainer}>
-      <AppButton title={film.name} size="sm" backgroundColor="#B00020" />
+      <Text  style={styles.appButtonText} size="sm" backgroundColor="#B00020">{film.name}</Text>
     </View>
+    </TouchableOpacity>
+
   )
 }
 

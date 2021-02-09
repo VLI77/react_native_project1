@@ -2,11 +2,14 @@ import React from 'react';
 import {Text, View, Image, StyleSheet, ScrollView, Button, Linking, Animated} from "react-native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {SearchAndDetailNavigator} from "./SearchAndDetailNavigator.js";
+import {createStackNavigator} from '@react-navigation/stack'
 import HomeScreen from "../screens/HomeScreen";
+import {TypeScreen} from"../screens/TypeScreen"
 // import Ionicons from 'react-native-vector-icons/Ionicons';
 import {FontAwesome} from '@expo/vector-icons';
 
 const TabNavigator = createBottomTabNavigator();
+const Stack = createStackNavigator()
 
 export const MainBottomNavigator = () => {
     return (
@@ -37,7 +40,6 @@ export const MainBottomNavigator = () => {
         }}
       >
             <TabNavigator.Screen name="HomeScreen" component={HomeScreen} />
-
             <TabNavigator.Screen name="Search" component={SearchAndDetailNavigator} />
         </TabNavigator.Navigator>
     )
