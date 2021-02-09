@@ -26,13 +26,14 @@ const styles = StyleSheet.create({
         width:'100%',
         height:'100%',
         
+        
     },
     appButtonContainer: {
         elevation: 8,
         backgroundColor: "#FFFFFF",
         paddingVertical: 10,
         paddingHorizontal: 12,
-        shadowColor:'#B00020',
+        shadowColor:"#B00020",
         shadowOffset: {
 	        width: 0,
 	        height: 8,
