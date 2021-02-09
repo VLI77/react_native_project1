@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import HomepageButton from '../components/HomepageButton';
+import React, { useState, useEffect} from 'react';
+import { StyleSheet, Text, View,FlatList } from 'react-native';
+import {HomepageButton} from '../components/HomepageButton';
 import {Logo} from '../components/Logo';
 import{getType} from '../services/movie'
 
