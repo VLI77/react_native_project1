@@ -8,16 +8,19 @@ const AppButton = ({ onPress, title }) => (
   </TouchableOpacity>
 );
 
+export const HomepageButton = (props) => {
+  const {film, index} = props;
 
-export default function HomepageButton({data}) {
-    return (
-      <View style={styles.screenContainer}>
-      <View style={styles.container}>
-        <AppButton title={data} size="sm" backgroundColor="#B00020" />
-      </View>
-      </View>
-    );
-  }
+  return(
+    <View style={styles.screenContainer}>
+    <View style={styles.container}>
+      <AppButton title={film.genre} size="sm" backgroundColor="#B00020" />
+    </View>
+    </View>
+
+  )
+}
+
 
 const styles = StyleSheet.create({
     screenContainer: {
