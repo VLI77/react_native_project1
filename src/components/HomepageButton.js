@@ -31,10 +31,13 @@ const styles = StyleSheet.create({
         
     },
     appButtonContainer: {
+        flex:1,
+        width:'90%',
+        margin:10,
         elevation: 8,
         backgroundColor: "#FFFFFF",
-        paddingVertical: 10,
-        paddingHorizontal: 12,
+        paddingVertical: 20,
+        paddingHorizontal: 20,
         shadowColor:'#B00020',
         shadowOffset: {
 	        width: 0,
@@ -42,11 +45,10 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.7,
         shadowRadius: 10.32,
-
-elevation: 16,
+        elevation: 16,
     },
     appButtonText: {
-        fontSize: 18,
+        fontSize: 15,
         color: "#B00020",
         fontWeight: "bold",
         alignSelf: "center",
@@ -54,7 +56,6 @@ elevation: 16,
         
     },
     container: {
-        flex:1,
         width:'100%',
         height:'100%',
         alignItems: 'center',

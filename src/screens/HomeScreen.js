@@ -30,6 +30,7 @@ export default function HomeScreen() {
                     data={filmsType}
                     renderItem={({item, index}) => <HomepageButton film={item} index={index} />}
                     keyExtractor={item => item.name.toString()}
+                    numColumns={2}
             
                 />
       <StatusBar style="auto" />
