@@ -25,6 +25,17 @@ export function getType() {
     ).then(result => result.json());
 }
 
+export function getVideo(id) {
+    return fetch(
+        getApiUrl(
+            `/genre/movie/${id}/video`,
+            {
+                language: 'fr-FR',
+            }
+        )
+    ).then(result => result.json());
+}
+
 export function getMovie(id) {
     return fetch(
         getApiUrl(

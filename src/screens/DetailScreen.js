@@ -1,15 +1,20 @@
 import React, {useLayoutEffect, useState, useEffect} from 'react';
-import {Text, View, Image, StyleSheet, ScrollView, Button, Linking, Animated} from "react-native";
-import {getLatest, getMovie} from "../services/movie";
+import {Text, Alert,View, Image, StyleSheet, ScrollView, Button, Linking, Animated,TouchableOpacity,Modal,TouchableHighlight} from "react-native";
+import {getLatest, getMovie,getVideo} from "../services/movie";
 import {Dimensions} from "react-native";
+import { Video, AVPlaybackStatus } from 'expo-av';
 
 export const DetailScreen = (props) => {
     const {route, navigation} = props;
     const [movie, setMovie] = useState(null);
     const [positionLeft, setPositionLeft] = useState(new Animated.Value(Dimensions.get('window').width));
+    const [modalVisible, setModalVisible] = useState(false);
+    const video = React.useRef(null);
+    const [status, setStatus] = React.useState({});
+
     useLayoutEffect(() => {
         navigation.setOptions({
-            title: route && route.params && route.params.title ? route.params.title : 'Dernier film sortit'
+            title: route && route.params && route.params.title ? route.params.title : 'Dernier film sortis'
         })
     })
     useEffect(() => {
@@ -18,7 +23,8 @@ export const DetailScreen = (props) => {
             {
                 toValue: 0,
                 speed: 50,
-                bounciness: 50
+                bounciness: 50,
+                useNativeDriver: true
             }
         ).start()
         if (route && route.params && route.params.id) {
@@ -41,6 +47,9 @@ export const DetailScreen = (props) => {
             });
         }
     }
+    function playVideo(){
+        console.log('video');
+    }
 
     if (!movie) {
         return null;
@@ -48,7 +57,27 @@ export const DetailScreen = (props) => {
 
     return (
         <View style={styles.page}>
+          <Modal animationType="slide"transparent={true} visible={modalVisible}>
+        <View style={styles.centeredView}>
+          <View>          
+            <TouchableHighlight
+              style={styles.openButton}
+              onPress={() => {
+                setModalVisible(!modalVisible);
+              }}>
+              <Text style={styles.textStyle}>X</Text>
+            </TouchableHighlight>
+          <Video ref={video} style={styles.video}  source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4', }}
+        useNativeControls
+        resizeMode="contain"
+        isLooping
+        onPlaybackStatusUpdate={status => setStatus(() => status)}
+      />
+        </View>
+        </View>
+         </Modal>
             <ScrollView>
+                
                 <Image
                     source={{ uri: `https://image.tmdb.org/t/p/original${movie.backdrop_path}` }}
                     style={styles.imageBg}
@@ -60,8 +89,10 @@ export const DetailScreen = (props) => {
                             style={styles.image}
                         />
                         <View style={styles.headerInfo}>
+                            <TouchableOpacity onPress={()=>{setModalVisible(true);}}>
                             <Image source={require('../../assets/images/button_play.png')} style={styles.imagePlay} />
-                            {movie.title !== '' && <Animated.Text style={[styles.title, {left: positionLeft}]}>{movie.title}</Animated.Text>}
+                            </TouchableOpacity>
+                            {movie.title !== '' && <Text style={styles.title}>{movie.title}</Text>}
                             {movie.production_companies.length > 0 && <Text style={styles.director}>{movie.production_companies[0].name}</Text>}
                             {movie.vote_average !== '' && <Text style={[styles.averageNote, movie.vote_average > 5 ? styles.good_film : styles.bad_film]}>{movie.vote_average}</Text>}
                         </View>
@@ -114,6 +145,22 @@ const styles = StyleSheet.create({
         alignSelf: "flex-end",
         height: 58,
         width: 58,
+    },
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      },
+      openButton:{
+        justifyContent:"flex-end",
+        width:30,
+        height:30,
+      },
+    video: {
+        justifyContent: 'center', 
+        alignItems: 'center',        
+        height: 250,
+        width: 250,
     },
     director: {
         fontSize: 13,
