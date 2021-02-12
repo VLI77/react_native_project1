@@ -10,7 +10,6 @@ export const LaunchNavigator = () => {
     return (
         <Stack.Navigator>
             <Stack.Screen name="Recherche" component={MainBottomNavigator} />
-            <Stack.Screen name="Genre" component={TypeScreen}/>
         </Stack.Navigator>
     )
 }

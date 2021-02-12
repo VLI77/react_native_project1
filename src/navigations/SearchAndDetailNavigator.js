@@ -8,7 +8,7 @@ const Stack = createStackNavigator()
 export const SearchAndDetailNavigator = () => {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Accueil" component={SearchScreen} options={{headerShown: false}}/>
+            <Stack.Screen name="Search" component={SearchScreen} />
             <Stack.Screen name="Detail" component={DetailScreen}/>
             <Stack.Screen name="Genre" component={TypeScreen}/>
         </Stack.Navigator>

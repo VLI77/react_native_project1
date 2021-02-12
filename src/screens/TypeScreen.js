@@ -35,7 +35,7 @@ export const TypeScreen = (props) => {
 
     return (
         <View style={styles.page}>
-            cc
+            <Text>cc</Text>
         </View>
 
     )

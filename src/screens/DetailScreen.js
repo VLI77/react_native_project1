@@ -56,16 +56,15 @@ export const DetailScreen = (props) => {
     }
 
     return (
-        <View style={styles.page}>
+        <View >
           <Modal animationType="slide"transparent={true} visible={modalVisible}>
         <View style={styles.centeredView}>
-          <View>          
             <TouchableHighlight
               style={styles.openButton}
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}>
-              <Text style={styles.textStyle}>X</Text>
+              <Text style={styles.textStyle}>Fermer la video</Text>
             </TouchableHighlight>
           <Video ref={video} style={styles.video}  source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4', }}
         useNativeControls
@@ -73,7 +72,6 @@ export const DetailScreen = (props) => {
         isLooping
         onPlaybackStatusUpdate={status => setStatus(() => status)}
       />
-        </View>
         </View>
          </Modal>
             <ScrollView>
@@ -152,13 +150,14 @@ const styles = StyleSheet.create({
         alignItems: "center",
       },
       openButton:{
-        justifyContent:"flex-end",
-        width:30,
-        height:30,
+        width:250,
+        height:20,
+        backgroundColor:'#33C6FF',
       },
-    video: {
-        justifyContent: 'center', 
-        alignItems: 'center',        
+      textStyle:{
+        textAlign:'center',
+      },
+    video: {        
         height: 250,
         width: 250,
     },
