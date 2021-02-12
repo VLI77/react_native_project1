@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Image, StyleSheet, ScrollView, Button, Linking, Animated} from "react-native";
+import {Text, View, Image, StyleSheet, ScrollView, Button, Linking, Animated, KeyboardAvoidingView} from "react-native";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {SearchAndDetailNavigator} from "./SearchAndDetailNavigator.js";
 import {createStackNavigator} from '@react-navigation/stack'
@@ -13,8 +13,8 @@ const Stack = createStackNavigator()
 
 export const MainBottomNavigator = () => {
     return (
-        
-        <TabNavigator.Navigator
+ 
+       <TabNavigator.Navigator
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;

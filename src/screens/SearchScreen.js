@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, Text, FlatList, ActivityIndicator, Image} from "react-native";
+import {SafeAreaView, View, StyleSheet, Text, FlatList, ActivityIndicator, Image,KeyboardAvoidingView} from "react-native";
 import {Search} from "../components/Search";
 import {ResultSearch} from "../components/ResultSearch";
 import {FilmItem} from "../components/FilmItem";
@@ -63,15 +63,18 @@ export default class SearchScreen extends React.Component {
             </View>
         }
 
-        return  <View style={styles.no_found_container}>
-                    <Image style={styles.image_no_result} source={require('../../assets/images/bad.png')} />
-                    <Text style={styles.text_no_result}>Aucune recherche {"\n"}effectuée</Text>
-                </View>
+        return  <KeyboardAvoidingView >
+                    <View style={styles.no_found_container}>
+                        <Image style={styles.image_no_result} source={require('../../assets/images/bad.png')} />
+                        <Text style={styles.text_no_result}>Aucune recherche {"\n"}effectuée</Text>
+                    </View>
+                </KeyboardAvoidingView>
     }
 
     render() {
         const {searchText} = this.state;
         return (
+    
             <SafeAreaView style={styles.main_container}>
                     <Logo/>
                     <Search handleSearch={this.handleSearchText} handleClickButton={this._searchFilms}/>
@@ -109,9 +112,10 @@ const styles = StyleSheet.create({
         color: "#B5A90F",
     },
     no_found_container: {
-        flex: 1,
+      flex:1,
+      marginTop:'40%',
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     },
     loading_container: {
     bottom: 300

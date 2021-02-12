@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
     main_container: {
         padding: 30,
         backgroundColor: '#B00020',
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
         borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15
     },
@@ -49,6 +51,7 @@ const styles = StyleSheet.create({
         height: 25
     },
     textinput: {
+        width:'100%',
         height: 50,
         paddingLeft: 10,
         fontWeight: 'bold',
